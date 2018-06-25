@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "637821365475",
+    "firebase_url": "https://climbingapp-e590b.firebaseio.com",
+    "project_id": "climbingapp-e590b",
+    "storage_bucket": "climbingapp-e590b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637821365475:android:cfb11b2ceb3d6855",
+        "android_client_info": {
+          "package_name": "com.liann.climbingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637821365475-gjf0j0upekckj7tkri5evgjafhuvqbg4.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "637821365475-gjf0j0upekckj7tkri5evgjafhuvqbg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDby3Ji1tibKCYYAzLJJVysAETmt1W-Wo4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
