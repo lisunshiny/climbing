@@ -3,6 +3,8 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-nativ
 
 import firebase from 'react-native-firebase';
 
+
+import Blah from './App/components/Blah'
 export default class App extends React.Component {
   constructor() {
     super();
@@ -20,6 +22,7 @@ export default class App extends React.Component {
       <ScrollView>
         <View style={styles.container}>
         <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
+        <Blah></Blah>
         <Text style={styles.welcome}>
           Welcome to the React Native{'\n'}Firebase starter project!
         </Text>
