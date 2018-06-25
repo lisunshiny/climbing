@@ -8,7 +8,7 @@ target 'ClimbingApp' do
   # Pods for ClimbingApp
 
   # Required by RNFirebase
-  pod 'Firebase/Core', '~> 4.13.0'
+  pod 'Firebase/Core', '~> 5.0.1'
 
   # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
   pod 'Firebase/AdMob'
@@ -20,7 +20,7 @@ target 'ClimbingApp' do
   pod 'Firebase/Messaging'
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Storage'
-  
+
   pod 'Fabric', '~> 1.7.6'
   pod 'Crashlytics', '~> 3.10.1'
 end
