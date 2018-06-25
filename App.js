@@ -1,10 +1,38 @@
 import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 import firebase from 'react-native-firebase';
 
-
 import Blah from './App/components/Blah'
+import HomeScreen from './App/screens/HomeScreen'
+import AddClimbingScreen from './App/screens/AddClimbingScreen'
+import LoginScreen from './App/screens/LoginScreen'
+import AuthLoadingScreen from './App/screens/AuthLoadingScreen'
+
+const AppStack = createStackNavigator({ Home: HomeScreen, AddClimbing: AddClimbingScreen });
+const AuthStack = createStackNavigator({ SignIn: LoginScreen });
+
+const RootStack = createSwitchNavigator(
+  {
+    AuthLoading: AuthLoadingScreen,
+    App: AppStack,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }
+  }
+);
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -19,45 +47,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
-        <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
-        <Blah></Blah>
-        <Text style={styles.welcome}>
-          Welcome to the React Native{'\n'}Firebase starter project!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        {Platform.OS === 'ios' ? (
-          <Text style={styles.instructions}>
-            Press Cmd+R to reload,{'\n'}
-            Cmd+D or shake for dev menu
-          </Text>
-        ) : (
-          <Text style={styles.instructions}>
-            Double tap R on your keyboard to reload,{'\n'}
-            Cmd+M or shake for dev menu
-          </Text>
-        )}
-        <View style={styles.modules}>
-          <Text style={styles.modulesHeader}>The following Firebase modules are enabled:</Text>
-          {firebase.admob.nativeModuleExists && <Text style={styles.module}>Admob</Text>}
-          {firebase.analytics.nativeModuleExists && <Text style={styles.module}>Analytics</Text>}
-          {firebase.auth.nativeModuleExists && <Text style={styles.module}>Authentication</Text>}
-          {firebase.crashlytics.nativeModuleExists && <Text style={styles.module}>Crashlytics</Text>}
-          {firebase.firestore.nativeModuleExists && <Text style={styles.module}>Cloud Firestore</Text>}
-          {firebase.messaging.nativeModuleExists && <Text style={styles.module}>Cloud Messaging</Text>}
-          {firebase.links.nativeModuleExists && <Text style={styles.module}>Dynamic Links</Text>}
-          {firebase.iid.nativeModuleExists && <Text style={styles.module}>Instance ID</Text>}
-          {firebase.notifications.nativeModuleExists && <Text style={styles.module}>Notifications</Text>}
-          {firebase.perf.nativeModuleExists && <Text style={styles.module}>Performance Monitoring</Text>}
-          {firebase.database.nativeModuleExists && <Text style={styles.module}>Realtime Database</Text>}
-          {firebase.config.nativeModuleExists && <Text style={styles.module}>Remote Config</Text>}
-          {firebase.storage.nativeModuleExists && <Text style={styles.module}>Storage</Text>}
-        </View>
-        </View>
-      </ScrollView>
+      <RootStack />
     );
   }
 }
