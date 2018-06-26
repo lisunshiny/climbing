@@ -20,7 +20,7 @@ const RootStack = createSwitchNavigator(
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'Auth',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
@@ -42,6 +42,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log("asdfsadf");
     // firebase things?
   }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'react-native-firebase';
 import { StyleSheet, Platform, Button, Text, View, ScrollView } from 'react-native';
 
 
@@ -8,6 +9,10 @@ export default class AuthLoadingScreen extends React.Component {
   };
 
   componentDidMount() {
+    console.log(firebase.auth());
+    console.log(firebase.auth().currentUser);
+    console.log(firebase.auth().signInWithEmailAndPassword("lianndabomb@yahoo.com", "password"));
+    console.log(firebase.auth().currentUser);
     this.props.navigation.navigate('Auth');
   }
 
