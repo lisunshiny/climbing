@@ -10,14 +10,21 @@ export default class LoginScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {username: "", password: "", errorMessage: ""};
+    this.state = {username: "lianndabomb@yahoo.com", password: "password", errorMessage: ""};
   }
 
   handleSignUp = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.username, this.state.password)
-      .then(() => this.props.navigation.navigate('App'))
+      .then(() =>
+        firebase.auth().currentUser
+          .updateProfile({ displayName: "badass climber" })
+          .then(() =>
+            this.props.navigation.navigate('App')
+          )
+          .catch(error => this.setState({ errorMessage: error.message }))
+      )
       .catch(error => this.setState({ errorMessage: error.message }))
   }
 
